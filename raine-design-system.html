@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raine — Design System · Full Color Palette</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* ── BRAND PRIMARY ───────────────────────────────── */
+  --fire:          #f04e23;
+  --fire-light:    #f47253;
+  --fire-dark:     #c03a18;
+  --fire-subtle:   #fde8e2;
+
+  --amber:         #f17528;
+  --amber-light:   #f5975a;
+  --amber-dark:    #c05a1a;
+  --amber-subtle:  #fdf0e5;
+
+  /* ── BRAND SECONDARY ─────────────────────────────── */
+  --forest:        #005427;
+  --forest-light:  #1a7a43;
+  --forest-dark:   #003a1b;
+  --forest-subtle: #e0f2e9;
+
+  --sky:           #a9dee6;
+  --sky-light:     #ccedf2;
+  --sky-dark:      #6cbfcc;
+  --sky-subtle:    #edf8fa;
+
+  --berry:         #cc0045;
+  --berry-light:   #e5336b;
+  --berry-dark:    #990034;
+  --berry-subtle:  #fce6ee;
+
+  /* ── GRAYS (warm-tinted, brand-coherent) ─────────── */
+  --gray-950:  #120d0a;
+  --gray-900:  #1e1611;
+  --gray-800:  #2e231c;
+  --gray-700:  #453630;
+  --gray-600:  #5e4c45;
+  --gray-500:  #7d6960;
+  --gray-400:  #a08a82;
+  --gray-300:  #c4b2ab;
+  --gray-200:  #ddd1cc;
+  --gray-150:  #ece4e0;
+  --gray-100:  #f4efec;
+  --gray-50:   #faf7f5;
+  --gray-0:    #ffffff;
+
+  /* ── SEMANTIC ────────────────────────────────────── */
+  --success:        #005427;
+  --success-light:  #e0f2e9;
+  --warning:        #f17528;
+  --warning-light:  #fdf0e5;
+  --error:          #cc0045;
+  --error-light:    #fce6ee;
+  --info:           #a9dee6;
+  --info-light:     #edf8fa;
+
+  /* ── SURFACE ─────────────────────────────────────── */
+  --bg-app:       #faf7f5;
+  --bg-card:      #ffffff;
+  --bg-overlay:   rgba(18,13,10,.48);
+
+  /* ── TEXT ────────────────────────────────────────── */
+  --text-primary:   #1e1611;
+  --text-secondary: #5e4c45;
+  --text-tertiary:  #a08a82;
+  --text-disabled:  #c4b2ab;
+  --text-inverse:   #ffffff;
+  --text-brand:     #f04e23;
+
+  /* ── BORDER ──────────────────────────────────────── */
+  --border-strong:  #c4b2ab;
+  --border-default: #ddd1cc;
+  --border-subtle:  #ece4e0;
+
+  /* PAGE */
+  --page-bg: #f4efec;
+}
+
+body {
+  background: var(--page-bg);
+  font-family: 'Epilogue', sans-serif;
+  color: var(--gray-900);
+  min-height: 100vh;
+}
+
+/* ── HEADER ──────────────────────────────────────────── */
+header {
+  background: var(--gray-950);
+  padding: 52px 64px 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 40px;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--fire);
+}
+
+.header-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.header-sub {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--gray-500);
+  letter-spacing: .4px;
+  line-height: 1.6;
+  max-width: 340px;
+  margin-top: 4px;
+}
+
+.header-meta {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.header-meta span {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-600);
+}
+
+.header-meta strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--fire);
+  letter-spacing: 4px;
+}
+
+/* ── NAV TABS ────────────────────────────────────────── */
+nav {
+  background: var(--gray-900);
+  padding: 0 64px;
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.tab {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  padding: 16px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+  user-select: none;
+}
+
+.tab:hover { color: var(--gray-200); }
+.tab.active { color: var(--fire); border-bottom-color: var(--fire); }
+
+/* ── MAIN ────────────────────────────────────────────── */
+main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 56px 64px 100px;
+}
+
+/* ── SECTION ─────────────────────────────────────────── */
+.section { display: none; }
+.section.active { display: block; }
+
+/* ── SECTION HEADER ──────────────────────────────────── */
+.sec-header {
+  margin-bottom: 36px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--gray-900);
+  line-height: 1;
+}
+
+.sec-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--gray-500);
+  max-width: 400px;
+  line-height: 1.65;
+  text-align: right;
+}
+
+/* ── COLOR GRID ──────────────────────────────────────── */
+.cg { display: grid; gap: 16px; margin-bottom: 48px; }
+.cg-2  { grid-template-columns: repeat(2, 1fr); }
+.cg-3  { grid-template-columns: repeat(3, 1fr); }
+.cg-4  { grid-template-columns: repeat(4, 1fr); }
+.cg-5  { grid-template-columns: repeat(5, 1fr); }
+
+/* ── COLOR CARD ──────────────────────────────────────── */
+.cc {
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--gray-0);
+  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05);
+  transition: transform .18s, box-shadow .18s;
+}
+.cc:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.06);
+}
+
+.cc-swatch {
+  height: 90px;
+  position: relative;
+}
+.cc-swatch.tall { height: 130px; }
+.cc-swatch.short { height: 60px; }
+
+.cc-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 3px;
+}
+.cc-badge.light { background: rgba(255,255,255,.22); color: rgba(255,255,255,.85); }
+.cc-badge.dark  { background: rgba(0,0,0,.1); color: rgba(0,0,0,.45); }
+
+.cc-body { padding: 14px 16px 16px; }
+
+.cc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.cc-token {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  color: var(--fire);
+  margin-bottom: 10px;
+  font-family: monospace;
+}
+
+.cc-vals { display: flex; flex-direction: column; gap: 4px; }
+
+.cc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cc-label {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.cc-val {
+  font-family: 'Courier New', monospace;
+  font-size: 10.5px;
+  color: var(--gray-600);
+}
+
+.cc-hr { height: 1px; background: var(--border-subtle); margin: 6px 0; }
+
+.cc-uses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.chip {
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+/* ── GRAY SCALE SPECIAL ──────────────────────────────── */
+.gray-scale {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.06);
+  margin-bottom: 32px;
+}
+
+.gs-step {
+  display: flex;
+  flex-direction: column;
+}
+
+.gs-swatch {
+  height: 80px;
+  transition: transform .15s;
+  cursor: default;
+}
+.gs-step:hover .gs-swatch { transform: scaleY(1.08); transform-origin: bottom; }
+
+.gs-info {
+  background: var(--gray-0);
+  padding: 10px 8px 12px;
+  border-right: 1px solid var(--border-subtle);
+  flex: 1;
+}
+.gs-step:last-child .gs-info { border-right: none; }
+
+.gs-step-name {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--gray-700);
+  margin-bottom: 3px;
+  white-space: nowrap;
+}
+
+.gs-hex {
+  font-family: monospace;
+  font-size: 9px;
+  color: var(--gray-400);
+  white-space: nowrap;
+}
+
+/* ── SEMANTIC GRID ───────────────────────────────────── */
+.sem-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.sem-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 0 0 1px rgba(0,0,0,.05);
+}
+
+.sem-header {
+  padding: 20px 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sem-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.sem-type {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.sem-body {
+  background: #fff;
+  padding: 14px 20px 18px;
+}
+
+.sem-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.sem-pairs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sem-pair {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sem-pair-label { font-size: 9px; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; }
+.sem-pair-val   { font-family: monospace; font-size: 10px; color: var(--gray-600); }
+
+/* ── SURFACE & TEXT SECTION ──────────────────────────── */
+.surface-demo {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08), 0 0 0 1px rgba(0,0,0,.06);
+  margin-bottom: 48px;
+}
+
+.surface-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr 1fr;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--gray-0);
+}
+.surface-row:last-child { border-bottom: none; }
+.surface-row:nth-child(even) { background: var(--gray-50); }
+
+.sr-role { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-500); }
+.sr-swatch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--gray-700);
+}
+.sr-dot { width: 18px; height: 18px; border-radius: 4px; flex-shrink: 0; box-shadow: 0 0 0 1px rgba(0,0,0,.1); }
+.sr-token { font-family: monospace; font-size: 10px; color: var(--fire); }
+.sr-hex   { font-family: monospace; font-size: 10px; color: var(--gray-500); }
+
+/* ── TOKENS CODE ─────────────────────────────────────── */
+.code-block {
+  background: var(--gray-950);
+  border-radius: 10px;
+  padding: 28px 32px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 1.9;
+  color: var(--gray-300);
+  overflow-x: auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,.12);
+}
+
+.code-block .c-comment { color: var(--gray-600); }
+.code-block .c-var     { color: var(--sky-dark); }
+.code-block .c-val     { color: var(--amber-light); }
+.code-block .c-fire    { color: var(--fire-light); }
+.code-block .c-group   { color: var(--gray-400); font-weight: 600; margin-top: 8px; display: block; }
+
+/* ── SUBSECTION LABEL ────────────────────────────────── */
+.sub-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin: 32px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sub-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-default);
+}
+
+/* ── OPACITY SWATCHES ────────────────────────────────── */
+.opacity-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.op-cell { border-radius: 8px; overflow: hidden; box-shadow: 0 0 0 1px rgba(0,0,0,.07); }
+
+.op-swatch {
+  height: 50px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect width='8' height='8' fill='%23ccc'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%23ccc'/%3E%3Crect width='16' height='16' fill='none'/%3E%3C/svg%3E");
+  position: relative;
+}
+
+.op-color {
+  position: absolute;
+  inset: 0;
+}
+
+.op-info {
+  background: #fff;
+  padding: 6px 8px;
+}
+
+.op-pct  { font-size: 11px; font-weight: 600; color: var(--gray-700); }
+.op-val  { font-size: 9px; font-family: monospace; color: var(--gray-400); }
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer {
+  background: var(--gray-950);
+  padding: 28px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer span {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gray-700);
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--fire);
+  letter-spacing: 5px;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 860px) {
+  header, nav, main, footer { padding-left: 24px; padding-right: 24px; }
+  .cg-4, .cg-5 { grid-template-columns: repeat(2, 1fr); }
+  .cg-3 { grid-template-columns: repeat(2, 1fr); }
+  .sem-grid { grid-template-columns: repeat(2, 1fr); }
+  .gray-scale { grid-template-columns: repeat(7, 1fr); }
+  .opacity-row { grid-template-columns: repeat(4, 1fr); }
+  .surface-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .header-title { font-size: 40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-brand">
+    <span class="header-eyebrow">Design System · Color Palette</span>
+    <div class="header-title">RAINE</div>
+    <p class="header-sub">Sistema completo de cores para desenvolvimento do app Raine. Inclui brand, cinzas com tint quente, semântica, superfícies e tokens CSS prontos para uso.</p>
+  </div>
+  <div class="header-meta">
+    <span>Versão</span>
+    <strong>v2.0</strong>
+    <span style="margin-top:8px;">Tokens</span>
+    <strong style="font-size:13px; letter-spacing:2px;">52 cores</strong>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="tab active" onclick="showTab('brand')">Brand</div>
+  <div class="tab" onclick="showTab('grays')">Cinzas</div>
+  <div class="tab" onclick="showTab('semantic')">Semântica</div>
+  <div class="tab" onclick="showTab('surfaces')">Superfícies & Texto</div>
+  <div class="tab" onclick="showTab('opacity')">Opacidade</div>
+  <div class="tab" onclick="showTab('tokens')">CSS Tokens</div>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════
+     BRAND
+══════════════════════════════════════════════════════ -->
+<section class="section active" id="brand">
+  <div class="sec-header">
+    <div class="sec-title">Cores da Marca</div>
+    <p class="sec-desc">Cores extraídas diretamente do Brand Guidelines da Raine. Cada cor vem com variantes light, dark e subtle para uso no app.</p>
+  </div>
+
+  <div class="sub-label">Primárias</div>
+  <div class="cg cg-4">
+    <!-- Fire base -->
+    <div class="cc">
+      <div class="cc-swatch tall" style="background:#f04e23;">
+        <span class="cc-badge light">Base</span>
+      </div>
+      <div class="cc-body">
+        <div class="cc-name">Fire</div>
+        <div class="cc-token">--fire</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#f04e23</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">RGB</span><span class="cc-val">240, 78, 35</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Logo</span><span class="chip">CTAs</span><span class="chip">Links</span></div>
+      </div>
+    </div>
+    <!-- Fire light -->
+    <div class="cc">
+      <div class="cc-swatch tall" style="background:#f47253;">
+        <span class="cc-badge light">Light</span>
+      </div>
+      <div class="cc-body">
+        <div class="cc-name">Fire Light</div>
+        <div class="cc-token">--fire-light</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#f47253</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Uso</span><span class="cc-val">Hover state</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Hover</span><span class="chip">Ícones</span></div>
+      </div>
+    </div>
+    <!-- Fire dark -->
+    <div class="cc">
+      <div class="cc-swatch tall" style="background:#c03a18;">
+        <span class="cc-badge light">Dark</span>
+      </div>
+      <div class="cc-body">
+        <div class="cc-name">Fire Dark</div>
+        <div class="cc-token">--fire-dark</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#c03a18</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Uso</span><span class="cc-val">Pressed</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Pressed</span><span class="chip">Dark mode</span></div>
+      </div>
+    </div>
+    <!-- Fire subtle -->
+    <div class="cc">
+      <div class="cc-swatch tall" style="background:#fde8e2; border-bottom:1px solid #f0ddd8;">
+        <span class="cc-badge dark">Subtle</span>
+      </div>
+      <div class="cc-body">
+        <div class="cc-name">Fire Subtle</div>
+        <div class="cc-token">--fire-subtle</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#fde8e2</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Uso</span><span class="cc-val">Backgrounds</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Tags</span><span class="chip">Chips</span><span class="chip">Alerts</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cg cg-4">
+    <div class="cc">
+      <div class="cc-swatch tall" style="background:#f17528;"><span class="cc-badge light">Base</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Amber</div>
+        <div class="cc-token">--amber</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#f17528</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">RGB</span><span class="cc-val">241, 117, 40</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Gradientes</span><span class="chip">Destaques</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch tall" style="background:#f5975a;"><span class="cc-badge light">Light</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Amber Light</div>
+        <div class="cc-token">--amber-light</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#f5975a</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Hover</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch tall" style="background:#c05a1a;"><span class="cc-badge light">Dark</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Amber Dark</div>
+        <div class="cc-token">--amber-dark</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#c05a1a</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Pressed</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch tall" style="background:#fdf0e5; border-bottom:1px solid #eeddd0;"><span class="cc-badge dark">Subtle</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Amber Subtle</div>
+        <div class="cc-token">--amber-subtle</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#fdf0e5</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Backgrounds</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-label">Secundárias — com variantes</div>
+  <div class="cg cg-3">
+    <!-- Forest -->
+    <div class="cc">
+      <div class="cc-swatch" style="background:linear-gradient(135deg, #005427 0%, #1a7a43 50%, #e0f2e9 100%);"></div>
+      <div class="cc-body">
+        <div class="cc-name">Forest Scale</div>
+        <div class="cc-token">--forest / --forest-light / --forest-subtle</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">Base</span><span class="cc-val">#005427</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Light</span><span class="cc-val">#1a7a43</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Dark</span><span class="cc-val">#003a1b</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Subtle</span><span class="cc-val">#e0f2e9</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Sucesso</span><span class="chip">Online</span><span class="chip">Confirmado</span></div>
+      </div>
+    </div>
+    <!-- Sky -->
+    <div class="cc">
+      <div class="cc-swatch" style="background:linear-gradient(135deg, #6cbfcc 0%, #a9dee6 50%, #edf8fa 100%);"></div>
+      <div class="cc-body">
+        <div class="cc-name">Sky Scale</div>
+        <div class="cc-token">--sky / --sky-light / --sky-subtle</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">Base</span><span class="cc-val">#a9dee6</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Light</span><span class="cc-val">#ccedf2</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Dark</span><span class="cc-val">#6cbfcc</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Subtle</span><span class="cc-val">#edf8fa</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Info</span><span class="chip">Cards</span><span class="chip">App UI</span></div>
+      </div>
+    </div>
+    <!-- Berry -->
+    <div class="cc">
+      <div class="cc-swatch" style="background:linear-gradient(135deg, #990034 0%, #cc0045 50%, #fce6ee 100%);"></div>
+      <div class="cc-body">
+        <div class="cc-name">Berry Scale</div>
+        <div class="cc-token">--berry / --berry-light / --berry-subtle</div>
+        <div class="cc-vals">
+          <div class="cc-row"><span class="cc-label">Base</span><span class="cc-val">#cc0045</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Light</span><span class="cc-val">#e5336b</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Dark</span><span class="cc-val">#990034</span></div>
+          <div class="cc-hr"></div>
+          <div class="cc-row"><span class="cc-label">Subtle</span><span class="cc-val">#fce6ee</span></div>
+        </div>
+        <div class="cc-uses"><span class="chip">Erro</span><span class="chip">Alerta</span><span class="chip">Notif.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     GRAYS
+══════════════════════════════════════════════════════ -->
+<section class="section" id="grays">
+  <div class="sec-header">
+    <div class="sec-title">Escala de Cinzas</div>
+    <p class="sec-desc">Cinzas com tint quente derivados da paleta da Raine. Coerentes com o brand e ideais para hierarquia visual no app.</p>
+  </div>
+
+  <!-- STRIP -->
+  <div class="gray-scale">
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#120d0a;"></div>
+      <div class="gs-info"><div class="gs-step-name">950</div><div class="gs-hex">#120d0a</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#1e1611;"></div>
+      <div class="gs-info"><div class="gs-step-name">900</div><div class="gs-hex">#1e1611</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#2e231c;"></div>
+      <div class="gs-info"><div class="gs-step-name">800</div><div class="gs-hex">#2e231c</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#453630;"></div>
+      <div class="gs-info"><div class="gs-step-name">700</div><div class="gs-hex">#453630</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#5e4c45;"></div>
+      <div class="gs-info"><div class="gs-step-name">600</div><div class="gs-hex">#5e4c45</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#7d6960;"></div>
+      <div class="gs-info"><div class="gs-step-name">500</div><div class="gs-hex">#7d6960</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#a08a82;"></div>
+      <div class="gs-info"><div class="gs-step-name">400</div><div class="gs-hex">#a08a82</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#c4b2ab;"></div>
+      <div class="gs-info"><div class="gs-step-name">300</div><div class="gs-hex">#c4b2ab</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#ddd1cc;"></div>
+      <div class="gs-info"><div class="gs-step-name">200</div><div class="gs-hex">#ddd1cc</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#ece4e0;"></div>
+      <div class="gs-info"><div class="gs-step-name">150</div><div class="gs-hex">#ece4e0</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#f4efec;"></div>
+      <div class="gs-info"><div class="gs-step-name">100</div><div class="gs-hex">#f4efec</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#faf7f5;"></div>
+      <div class="gs-info"><div class="gs-step-name">50</div><div class="gs-hex">#faf7f5</div></div>
+    </div>
+    <div class="gs-step">
+      <div class="gs-swatch" style="background:#ffffff; border-bottom: 1px solid #ece4e0;"></div>
+      <div class="gs-info"><div class="gs-step-name">0</div><div class="gs-hex">#ffffff</div></div>
+    </div>
+  </div>
+
+  <!-- INDIVIDUAL CARDS -->
+  <div class="sub-label">Cards com usos recomendados</div>
+  <div class="cg cg-5">
+    <div class="cc">
+      <div class="cc-swatch" style="background:#120d0a;"><span class="cc-badge light">950</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 950</div>
+        <div class="cc-token">--gray-950</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#120d0a</span></div></div>
+        <div class="cc-uses"><span class="chip">Nav bar</span><span class="chip">Dark BG</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch" style="background:#1e1611;"><span class="cc-badge light">900</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 900</div>
+        <div class="cc-token">--gray-900</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#1e1611</span></div></div>
+        <div class="cc-uses"><span class="chip">Heading</span><span class="chip">Text</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch" style="background:#2e231c;"><span class="cc-badge light">800</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 800</div>
+        <div class="cc-token">--gray-800</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#2e231c</span></div></div>
+        <div class="cc-uses"><span class="chip">Sub-heading</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch" style="background:#453630;"><span class="cc-badge light">700</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 700</div>
+        <div class="cc-token">--gray-700</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#453630</span></div></div>
+        <div class="cc-uses"><span class="chip">Body text</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch" style="background:#5e4c45;"><span class="cc-badge light">600</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 600</div>
+        <div class="cc-token">--gray-600</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#5e4c45</span></div></div>
+        <div class="cc-uses"><span class="chip">Secondary</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch" style="background:#7d6960;"><span class="cc-badge light">500</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 500</div>
+        <div class="cc-token">--gray-500</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#7d6960</span></div></div>
+        <div class="cc-uses"><span class="chip">Placeholder</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch" style="background:#a08a82;"><span class="cc-badge light">400</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 400</div>
+        <div class="cc-token">--gray-400</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#a08a82</span></div></div>
+        <div class="cc-uses"><span class="chip">Disabled text</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch" style="background:#c4b2ab;"><span class="cc-badge light">300</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 300</div>
+        <div class="cc-token">--gray-300</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#c4b2ab</span></div></div>
+        <div class="cc-uses"><span class="chip">Borders</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch" style="background:#ddd1cc; border-bottom:1px solid #ccc4bf;"><span class="cc-badge dark">200</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 200</div>
+        <div class="cc-token">--gray-200</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#ddd1cc</span></div></div>
+        <div class="cc-uses"><span class="chip">Dividers</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch" style="background:#ece4e0; border-bottom:1px solid #ddd1cc;"><span class="cc-badge dark">150</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 150</div>
+        <div class="cc-token">--gray-150</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#ece4e0</span></div></div>
+        <div class="cc-uses"><span class="chip">Input border</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cg cg-3">
+    <div class="cc">
+      <div class="cc-swatch short" style="background:#f4efec; border-bottom:1px solid #e8e0dc;"><span class="cc-badge dark">100</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 100</div>
+        <div class="cc-token">--gray-100</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#f4efec</span></div></div>
+        <div class="cc-uses"><span class="chip">Page BG</span><span class="chip">Zebra</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch short" style="background:#faf7f5; border-bottom:1px solid #ece4e0;"><span class="cc-badge dark">50</span></div>
+      <div class="cc-body">
+        <div class="cc-name">Gray 50</div>
+        <div class="cc-token">--gray-50</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#faf7f5</span></div></div>
+        <div class="cc-uses"><span class="chip">App BG</span><span class="chip">Light BG</span></div>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="cc-swatch short" style="background:#ffffff; border-bottom:1px solid #ece4e0;"><span class="cc-badge dark">0</span></div>
+      <div class="cc-body">
+        <div class="cc-name">White</div>
+        <div class="cc-token">--gray-0</div>
+        <div class="cc-vals"><div class="cc-row"><span class="cc-label">HEX</span><span class="cc-val">#ffffff</span></div></div>
+        <div class="cc-uses"><span class="chip">Cards</span><span class="chip">Inputs</span><span class="chip">Modals</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     SEMANTIC
+══════════════════════════════════════════════════════ -->
+<section class="section" id="semantic">
+  <div class="sec-header">
+    <div class="sec-title">Cores Semânticas</div>
+    <p class="sec-desc">Cores com significado funcional para feedbacks, estados e alertas no app.</p>
+  </div>
+
+  <div class="sem-grid">
+    <!-- Success -->
+    <div class="sem-card">
+      <div class="sem-header" style="background:#e0f2e9;">
+        <div class="sem-icon" style="background:#005427;">✓</div>
+        <span class="sem-type" style="color:#005427;">Success</span>
+      </div>
+      <div class="sem-body">
+        <div class="sem-name">Sucesso</div>
+        <div class="sem-pairs">
+          <div class="sem-pair"><span class="sem-pair-label">Base</span><span class="sem-pair-val">#005427</span></div>
+          <div class="sem-pair"><span class="sem-pair-label">Light</span><span class="sem-pair-val">#1a7a43</span></div>
+          <div class="sem-pair"><span class="sem-pair-label">Subtle</span><span class="sem-pair-val">#e0f2e9</span></div>
+        </div>
+        <div class="cc-uses" style="margin-top:10px;"><span class="chip">Match aceito</span><span class="chip">Enviado</span></div>
+      </div>
+    </div>
+    <!-- Warning -->
+    <div class="sem-card">
+      <div class="sem-header" style="background:#fdf0e5;">
+        <div class="sem-icon" style="background:#f17528; color:#fff;">!</div>
+        <span class="sem-type" style="color:#c05a1a;">Warning</span>
+      </div>
+      <div class="sem-body">
+        <div class="sem-name">Atenção</div>
+        <div class="sem-pairs">
+          <div class="sem-pair"><span class="sem-pair-label">Base</span><span class="sem-pair-val">#f17528</span></div>
+          <div class="sem-pair"><span class="sem-pair-label">Light</span><span class="sem-pair-val">#f5975a</span></div>
+          <div class="sem-pair"><span class="sem-pair-label">Subtle</span><span class="sem-pair-val">#fdf0e5</span></div>
+        </div>
+        <div class="cc-uses" style="margin-top:10px;"><span class="chip">Incompleto</span><span class="chip">Pendente</span></div>
+      </div>
+    </div>
+    <!-- Error -->
+    <div class="sem-card">
+      <div class="sem-header" style="background:#fce6ee;">
+        <div class="sem-icon" style="background:#cc0045; color:#fff;">✕</div>
+        <span class="sem-type" style="color:#990034;">Error</span>
+      </div>
+      <div class="sem-body">
+        <div class="sem-name">Erro</div>
+        <div class="sem-pairs">
+          <div class="sem-pair"><span class="sem-pair-label">Base</span><span class="sem-pair-val">#cc0045</span></div>
+          <div class="sem-pair"><span class="sem-pair-label">Light</span><span class="sem-pair-val">#e5336b</span></div>
+          <div class="sem-pair"><span class="sem-pair-label">Subtle</span><span class="sem-pair-val">#fce6ee</span></div>
+        </div>
+        <div class="cc-uses" style="margin-top:10px;"><span class="chip">Falha</span><span class="chip">Excluir</span></div>
+      </div>
+    </div>
+    <!-- Info -->
+    <div class="sem-card">
+      <div class="sem-header" style="background:#edf8fa;">
+        <div class="sem-icon" style="background:#a9dee6; color:#1e1611;">i</div>
+        <span class="sem-type" style="color:#4a7a84;">Info</span>
+      </div>
+      <div class="sem-body">
+        <div class="sem-name">Informação</div>
+        <div class="sem-pairs">
+          <div class="sem-pair"><span class="sem-pair-label">Base</span><span class="sem-pair-val">#a9dee6</span></div>
+          <div class="sem-pair"><span class="sem-pair-label">Light</span><span class="sem-pair-val">#ccedf2</span></div>
+          <div class="sem-pair"><span class="sem-pair-label">Subtle</span><span class="sem-pair-val">#edf8fa</span></div>
+        </div>
+        <div class="cc-uses" style="margin-top:10px;"><span class="chip">Tooltip</span><span class="chip">Banner</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPONENT EXAMPLES -->
+  <div class="sub-label">Preview de componentes</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+
+    <div style="background:#fff; border-radius:10px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,.06); display:flex; flex-direction:column; gap:10px;">
+      <div style="padding:12px 16px; border-radius:8px; background:#e0f2e9; color:#003a1b; font-size:12px; font-weight:500; display:flex; align-items:center; gap:8px;">
+        <span style="background:#005427; color:#fff; width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:10px;">✓</span>
+        Conexão confirmada com Ana Lima!
+      </div>
+      <div style="padding:12px 16px; border-radius:8px; background:#fde8e2; color:#c03a18; font-size:12px; font-weight:500; display:flex; align-items:center; gap:8px;">
+        <span style="background:#f04e23; color:#fff; width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:10px;">!</span>
+        Complete seu perfil para aparecer no feed.
+      </div>
+      <div style="padding:12px 16px; border-radius:8px; background:#fce6ee; color:#990034; font-size:12px; font-weight:500; display:flex; align-items:center; gap:8px;">
+        <span style="background:#cc0045; color:#fff; width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:10px;">✕</span>
+        Erro ao enviar mensagem. Tente novamente.
+      </div>
+      <div style="padding:12px 16px; border-radius:8px; background:#edf8fa; color:#4a7a84; font-size:12px; font-weight:500; display:flex; align-items:center; gap:8px;">
+        <span style="background:#a9dee6; color:#1e1611; width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:10px; font-weight:700;">i</span>
+        Sua localização é usada apenas para sugestões.
+      </div>
+    </div>
+
+    <div style="background:#fff; border-radius:10px; padding:20px; box-shadow:0 1px 3px rgba(0,0,0,.06); display:flex; flex-direction:column; gap:10px;">
+      <button style="background:#f04e23; color:#fff; border:none; padding:13px 20px; border-radius:8px; font-family:'Epilogue',sans-serif; font-size:13px; font-weight:500; letter-spacing:.5px; cursor:pointer; width:100%;">Encontrar conexões ✦</button>
+      <button style="background:#fde8e2; color:#c03a18; border:none; padding:13px 20px; border-radius:8px; font-family:'Epilogue',sans-serif; font-size:13px; font-weight:500; letter-spacing:.5px; cursor:pointer; width:100%;">Ver perfil</button>
+      <button style="background:transparent; color:#f04e23; border: 1.5px solid #f04e23; padding:12px 20px; border-radius:8px; font-family:'Epilogue',sans-serif; font-size:13px; font-weight:500; letter-spacing:.5px; cursor:pointer; width:100%;">Cancelar match</button>
+      <button style="background:#f4efec; color:#a08a82; border:none; padding:13px 20px; border-radius:8px; font-family:'Epilogue',sans-serif; font-size:13px; font-weight:500; letter-spacing:.5px; cursor:not-allowed; width:100%;" disabled>Desabilitado</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     SURFACES & TEXT
+══════════════════════════════════════════════════════ -->
+<section class="section" id="surfaces">
+  <div class="sec-header">
+    <div class="sec-title">Superfícies & Texto</div>
+    <p class="sec-desc">Tokens de superfície e tipografia para uso consistente no app. Cada role tem um token semântico claro.</p>
+  </div>
+
+  <div class="sub-label">Superfícies</div>
+  <div class="surface-demo">
+    <div class="surface-row">
+      <span class="sr-role">BG App</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#faf7f5;"></span> --bg-app</div>
+      <span class="sr-token">var(--gray-50)</span>
+      <span class="sr-hex">#faf7f5</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">BG Card</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#ffffff;"></span> --bg-card</div>
+      <span class="sr-token">var(--gray-0)</span>
+      <span class="sr-hex">#ffffff</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">BG Sunken</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#f4efec;"></span> --bg-sunken</div>
+      <span class="sr-token">var(--gray-100)</span>
+      <span class="sr-hex">#f4efec</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">BG Overlay</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:rgba(18,13,10,.48);"></span> --bg-overlay</div>
+      <span class="sr-token">rgba(gray-950, .48)</span>
+      <span class="sr-hex">rgba(18,13,10,.48)</span>
+    </div>
+  </div>
+
+  <div class="sub-label">Texto</div>
+  <div class="surface-demo">
+    <div class="surface-row">
+      <span class="sr-role">Primary</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#1e1611;"></span> --text-primary</div>
+      <span class="sr-token">var(--gray-900)</span>
+      <span class="sr-hex">#1e1611</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">Secondary</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#5e4c45;"></span> --text-secondary</div>
+      <span class="sr-token">var(--gray-600)</span>
+      <span class="sr-hex">#5e4c45</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">Tertiary</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#a08a82;"></span> --text-tertiary</div>
+      <span class="sr-token">var(--gray-400)</span>
+      <span class="sr-hex">#a08a82</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">Disabled</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#c4b2ab;"></span> --text-disabled</div>
+      <span class="sr-token">var(--gray-300)</span>
+      <span class="sr-hex">#c4b2ab</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">Brand</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#f04e23;"></span> --text-brand</div>
+      <span class="sr-token">var(--fire)</span>
+      <span class="sr-hex">#f04e23</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">Inverse</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#ffffff; box-shadow:0 0 0 1px rgba(0,0,0,.12);"></span> --text-inverse</div>
+      <span class="sr-token">var(--gray-0)</span>
+      <span class="sr-hex">#ffffff</span>
+    </div>
+  </div>
+
+  <div class="sub-label">Bordas</div>
+  <div class="surface-demo">
+    <div class="surface-row">
+      <span class="sr-role">Strong</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#c4b2ab;"></span> --border-strong</div>
+      <span class="sr-token">var(--gray-300)</span>
+      <span class="sr-hex">#c4b2ab</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">Default</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#ddd1cc;"></span> --border-default</div>
+      <span class="sr-token">var(--gray-200)</span>
+      <span class="sr-hex">#ddd1cc</span>
+    </div>
+    <div class="surface-row">
+      <span class="sr-role">Subtle</span>
+      <div class="sr-swatch"><span class="sr-dot" style="background:#ece4e0;"></span> --border-subtle</div>
+      <span class="sr-token">var(--gray-150)</span>
+      <span class="sr-hex">#ece4e0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     OPACITY
+══════════════════════════════════════════════════════ -->
+<section class="section" id="opacity">
+  <div class="sec-header">
+    <div class="sec-title">Opacidade da Cor Principal</div>
+    <p class="sec-desc">Escala de opacidade do Raine Fire para overlays, sombras coloridas e estados.</p>
+  </div>
+
+  <div class="sub-label">Raine Fire — escala de opacidade</div>
+  <div class="opacity-row">
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(240,78,35,1.0);"></div></div>
+      <div class="op-info"><div class="op-pct">100%</div><div class="op-val">#f04e23</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(240,78,35,.88);"></div></div>
+      <div class="op-info"><div class="op-pct">88%</div><div class="op-val">rgba .88</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(240,78,35,.72);"></div></div>
+      <div class="op-info"><div class="op-pct">72%</div><div class="op-val">rgba .72</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(240,78,35,.56);"></div></div>
+      <div class="op-info"><div class="op-pct">56%</div><div class="op-val">rgba .56</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(240,78,35,.40);"></div></div>
+      <div class="op-info"><div class="op-pct">40%</div><div class="op-val">rgba .40</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(240,78,35,.24);"></div></div>
+      <div class="op-info"><div class="op-pct">24%</div><div class="op-val">rgba .24</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(240,78,35,.12);"></div></div>
+      <div class="op-info"><div class="op-pct">12%</div><div class="op-val">rgba .12</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(240,78,35,.06);"></div></div>
+      <div class="op-info"><div class="op-pct">6%</div><div class="op-val">rgba .06</div></div>
+    </div>
+  </div>
+
+  <div class="sub-label">Gray 950 — overlays e sombras</div>
+  <div class="opacity-row">
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(18,13,10,1.0);"></div></div>
+      <div class="op-info"><div class="op-pct">100%</div><div class="op-val">#120d0a</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(18,13,10,.80);"></div></div>
+      <div class="op-info"><div class="op-pct">80%</div><div class="op-val">Modal</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(18,13,10,.60);"></div></div>
+      <div class="op-info"><div class="op-pct">60%</div><div class="op-val">Overlay</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(18,13,10,.48);"></div></div>
+      <div class="op-info"><div class="op-pct">48%</div><div class="op-val">Sheet</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(18,13,10,.32);"></div></div>
+      <div class="op-info"><div class="op-pct">32%</div><div class="op-val">Scrim</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(18,13,10,.16);"></div></div>
+      <div class="op-info"><div class="op-pct">16%</div><div class="op-val">Shadow</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(18,13,10,.08);"></div></div>
+      <div class="op-info"><div class="op-pct">8%</div><div class="op-val">Hover</div></div>
+    </div>
+    <div class="op-cell">
+      <div class="op-swatch"><div class="op-color" style="background:rgba(18,13,10,.04);"></div></div>
+      <div class="op-info"><div class="op-pct">4%</div><div class="op-val">Subtle</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     CSS TOKENS
+══════════════════════════════════════════════════════ -->
+<section class="section" id="tokens">
+  <div class="sec-header">
+    <div class="sec-title">CSS Custom Properties</div>
+    <p class="sec-desc">Copie e cole no seu projeto. Pronto para React Native (via constants), Tailwind config, ou CSS puro.</p>
+  </div>
+
+  <div class="code-block">
+<span class="c-comment">/* ═══════════════════════════════════════════════════════</span>
+<span class="c-comment">   RAINE DESIGN SYSTEM — COLOR TOKENS v2.0</span>
+<span class="c-comment">   ═══════════════════════════════════════════════════════ */</span>
+:root {
+
+<span class="c-group">  /* BRAND PRIMARY */</span>
+  <span class="c-var">--fire</span>:           <span class="c-val">#f04e23</span>;
+  <span class="c-var">--fire-light</span>:     <span class="c-val">#f47253</span>;
+  <span class="c-var">--fire-dark</span>:      <span class="c-val">#c03a18</span>;
+  <span class="c-var">--fire-subtle</span>:    <span class="c-val">#fde8e2</span>;
+
+  <span class="c-var">--amber</span>:          <span class="c-val">#f17528</span>;
+  <span class="c-var">--amber-light</span>:    <span class="c-val">#f5975a</span>;
+  <span class="c-var">--amber-dark</span>:     <span class="c-val">#c05a1a</span>;
+  <span class="c-var">--amber-subtle</span>:   <span class="c-val">#fdf0e5</span>;
+
+<span class="c-group">  /* BRAND SECONDARY */</span>
+  <span class="c-var">--forest</span>:         <span class="c-val">#005427</span>;
+  <span class="c-var">--forest-light</span>:   <span class="c-val">#1a7a43</span>;
+  <span class="c-var">--forest-dark</span>:    <span class="c-val">#003a1b</span>;
+  <span class="c-var">--forest-subtle</span>:  <span class="c-val">#e0f2e9</span>;
+
+  <span class="c-var">--sky</span>:            <span class="c-val">#a9dee6</span>;
+  <span class="c-var">--sky-light</span>:      <span class="c-val">#ccedf2</span>;
+  <span class="c-var">--sky-dark</span>:       <span class="c-val">#6cbfcc</span>;
+  <span class="c-var">--sky-subtle</span>:     <span class="c-val">#edf8fa</span>;
+
+  <span class="c-var">--berry</span>:          <span class="c-val">#cc0045</span>;
+  <span class="c-var">--berry-light</span>:    <span class="c-val">#e5336b</span>;
+  <span class="c-var">--berry-dark</span>:     <span class="c-val">#990034</span>;
+  <span class="c-var">--berry-subtle</span>:   <span class="c-val">#fce6ee</span>;
+
+<span class="c-group">  /* GRAYS — warm tinted */</span>
+  <span class="c-var">--gray-950</span>:       <span class="c-val">#120d0a</span>;
+  <span class="c-var">--gray-900</span>:       <span class="c-val">#1e1611</span>;
+  <span class="c-var">--gray-800</span>:       <span class="c-val">#2e231c</span>;
+  <span class="c-var">--gray-700</span>:       <span class="c-val">#453630</span>;
+  <span class="c-var">--gray-600</span>:       <span class="c-val">#5e4c45</span>;
+  <span class="c-var">--gray-500</span>:       <span class="c-val">#7d6960</span>;
+  <span class="c-var">--gray-400</span>:       <span class="c-val">#a08a82</span>;
+  <span class="c-var">--gray-300</span>:       <span class="c-val">#c4b2ab</span>;
+  <span class="c-var">--gray-200</span>:       <span class="c-val">#ddd1cc</span>;
+  <span class="c-var">--gray-150</span>:       <span class="c-val">#ece4e0</span>;
+  <span class="c-var">--gray-100</span>:       <span class="c-val">#f4efec</span>;
+  <span class="c-var">--gray-50</span>:        <span class="c-val">#faf7f5</span>;
+  <span class="c-var">--gray-0</span>:         <span class="c-val">#ffffff</span>;
+
+<span class="c-group">  /* SEMANTIC */</span>
+  <span class="c-var">--success</span>:        <span class="c-val">var(--forest)</span>;
+  <span class="c-var">--success-subtle</span>: <span class="c-val">var(--forest-subtle)</span>;
+  <span class="c-var">--warning</span>:        <span class="c-val">var(--amber)</span>;
+  <span class="c-var">--warning-subtle</span>: <span class="c-val">var(--amber-subtle)</span>;
+  <span class="c-var">--error</span>:          <span class="c-val">var(--berry)</span>;
+  <span class="c-var">--error-subtle</span>:   <span class="c-val">var(--berry-subtle)</span>;
+  <span class="c-var">--info</span>:           <span class="c-val">var(--sky)</span>;
+  <span class="c-var">--info-subtle</span>:    <span class="c-val">var(--sky-subtle)</span>;
+
+<span class="c-group">  /* SURFACE */</span>
+  <span class="c-var">--bg-app</span>:         <span class="c-val">var(--gray-50)</span>;
+  <span class="c-var">--bg-card</span>:        <span class="c-val">var(--gray-0)</span>;
+  <span class="c-var">--bg-sunken</span>:      <span class="c-val">var(--gray-100)</span>;
+  <span class="c-var">--bg-overlay</span>:     <span class="c-val">rgba(18, 13, 10, 0.48)</span>;
+
+<span class="c-group">  /* TEXT */</span>
+  <span class="c-var">--text-primary</span>:   <span class="c-val">var(--gray-900)</span>;
+  <span class="c-var">--text-secondary</span>: <span class="c-val">var(--gray-600)</span>;
+  <span class="c-var">--text-tertiary</span>:  <span class="c-val">var(--gray-400)</span>;
+  <span class="c-var">--text-disabled</span>:  <span class="c-val">var(--gray-300)</span>;
+  <span class="c-var">--text-inverse</span>:   <span class="c-val">var(--gray-0)</span>;
+  <span class="c-var">--text-brand</span>:     <span class="c-val">var(--fire)</span>;
+
+<span class="c-group">  /* BORDER */</span>
+  <span class="c-var">--border-strong</span>:  <span class="c-val">var(--gray-300)</span>;
+  <span class="c-var">--border-default</span>: <span class="c-val">var(--gray-200)</span>;
+  <span class="c-var">--border-subtle</span>:  <span class="c-val">var(--gray-150)</span>;
+}
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>Design System · v2.0 · 52 tokens</span>
+  <div class="footer-logo">RAINE</div>
+  <span>Brand-coherent · App-ready</span>
+</footer>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelector('#' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
